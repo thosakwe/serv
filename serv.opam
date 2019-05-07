@@ -1,0 +1,13 @@
+opam-version: "2.0"
+name: "serv"
+version: "0.0"
+synopsis: "Tool for producing reproducible server configuration."
+maintainer: "thosakwe@gmail.com"
+authors: ["Tobe O"]
+homepage: "https://github.com/thosakwe/serv"
+bug-reports: "https://github.com/thosakwe/serv/issues"
+dev-repo: "git://github.com/thosakwe/serv.git"
+license: "GPL-3.0"
+build: [
+  ["dune" "build" "bin/serv.exe" "-j" jobs]
+]
