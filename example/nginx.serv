@@ -1,0 +1,2 @@
+apt_get nginx
+start_service nginx

@@ -1,0 +1,6 @@
+# Each command in serv can be undone, so the server can be restored to a
+# previous state on failure, reset, or otherwise.
+#
+# Serv keeps a log of action batches, just like a database logs transactions.
+
+log "Hello, serv!"

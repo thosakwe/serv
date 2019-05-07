@@ -1,0 +1,25 @@
+# You can create tasks to be run in parallel.
+# serv spawns a new thread or process for each task.
+
+fork {
+  rm "/etc/nginx/sites-available/default"
+  put "nginx.conf" "/etc/nginx/sites-available/foo.conf"
+  link "/etc/nginx/sites-available/foo.conf" "/etc/nginx/sites-enabled/foo.conf"
+}
+
+fork {
+  bash
+    echo Doing some stuff in another context...
+    sleep 3
+  @no_undo
+  endbash
+}
+
+# You can wait for all current parallel tasks to complete.
+#
+# If any parallel task failed, then the entire current batch is reverted.
+# 
+# If all tasks succeeded, then execution continues.
+join
+
+log 'Two parallel tasks completed.'

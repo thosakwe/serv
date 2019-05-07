@@ -1,0 +1,13 @@
+# To execute a bash script, you must also provide instructions on how to
+# reverse its actions.
+
+bash
+  echo 'Hello world' > ~/hello.txt
+  ln -s ~/hello.txt /etc/foo/bar.txt
+@undo
+  unlink /etc/foo/bar.txt
+  rm ~/.hello.txt
+endbash
+
+# In practice, though, serv tries to reduce the amount of custom
+# shell scripts you will need to write.
